@@ -63,7 +63,9 @@ function updateUserList(socketIds) {
   });
 }
 
-const socket = io.connect(window.location.href);
+const socket = io.connect(
+  window.location.href.substring(0, window.location.href.length - 1)
+);
 
 socket.on("update-user-list", ({ users }) => {
   updateUserList(users);
